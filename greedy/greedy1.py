@@ -11,17 +11,18 @@ if not list:
 list(reversed(list))해야 list가 뒤집힌 list반환
 '''
 def solution(n, lost, reserve):
-    answer = n -len(lost)
+    answer = n - len(lost)
     lost.reverse()
     reserve.reverse()
     while True:
         if (not lost) | (not reserve): return answer
-        lo = lost.pop()
         re = reserve.pop()
-        if lo-1 == re:
+        if re - 1 in lost:
             answer += 1
-        elif lo +1 == re:
-                answer += 1
+            lost.remove(re-1)
+        elif re +1 in lost:
+            answer += 1
+            lost.remove(re + 1)
 
     return answer
 

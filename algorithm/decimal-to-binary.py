@@ -16,9 +16,9 @@ str_number = ''
 
 #변환 작업
 while(decimal_number > to_number):
-    str_number += str(int(decimal_number % to_number))
+    str_number = str(int(decimal_number % to_number)) + str_number
     decimal_number /= to_number
     if(decimal_number < to_number): #마지막 나눗셈일 때는 그대로 붙이기
-        str_number += str(int(decimal_number))
+        str_number = str(int(decimal_number)) + str_number
     
-print('2진수: '+ str_number[::-1])
+print('2진수: '+ str_number)
